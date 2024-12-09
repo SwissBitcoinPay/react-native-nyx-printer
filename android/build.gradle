@@ -89,6 +89,10 @@ android {
       }
     }
   }
+
+  buildFeatures {
+    aidl true
+  }
 }
 
 repositories {
