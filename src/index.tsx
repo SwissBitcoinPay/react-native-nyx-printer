@@ -1,5 +1,9 @@
 import { NativeModules, Platform } from 'react-native';
-import NyxTextFormat, { NyxAlign } from './NyxTextFormat';
+import NyxTextFormat, {
+  NyxAlign,
+  NyxFont,
+  NyxFontStyle,
+} from './NyxTextFormat';
 
 const LINKING_ERROR =
   `The package 'react-native-nyx-printer' doesn't seem to be linked. Make sure: \n\n` +
@@ -65,4 +69,4 @@ export function paperOut(): Promise<number> {
   return NyxPrinter.paperOut();
 }
 
-export { NyxTextFormat, NyxAlign };
+export { NyxTextFormat, NyxAlign, NyxFont, NyxFontStyle };
