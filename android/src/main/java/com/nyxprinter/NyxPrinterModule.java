@@ -278,6 +278,14 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       }
     }, promise);
   }
+  
+  private byte[] readableArrayToByteArray(ReadableArray readableArray) {
+    byte[] byteArray = new byte[readableArray.size()];
+    for (int i = 0; i < readableArray.size(); i++) {
+        byteArray[i] = (byte) readableArray.getInt(i); // Cast each value to a byte
+    }
+    return byteArray;
+  }
 
   @ReactMethod
   public void printBitmap(ReadableArray inputBytes, Promise promise) {
@@ -285,7 +293,7 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       @Override
       public void run() {
         try {
-          ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(readableArrayToByteStringArray(inputBytes));
+          ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(readableArrayToByteArray(inputBytes));
           Bitmap decoded = BitmapFactory.decodeStream(arrayInputStream);
           ByteArrayOutputStream stream = new ByteArrayOutputStream();
           decoded.compress(Bitmap.CompressFormat.PNG, 100, stream);
