@@ -31,9 +31,14 @@ export function multiply(a: number, b: number): Promise<number> {
 
 export function printText(
   text: string,
-  textFormat = new NyxTextFormat()
+  textFormat: NyxTextFormat
 ): Promise<number> {
-  return NyxPrinter.printText(text, textFormat.toObject());
+  const defaultValues = new NyxTextFormat().toObject();
+  const finalTextFormat = {
+    ...defaultValues,
+    ...textFormat,
+  };
+  return NyxPrinter.printText(text, finalTextFormat);
 }
 
 export function printBarcode(
