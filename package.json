@@ -1,6 +1,6 @@
 {
   "name": "@swissbitcoinpay/react-native-nyx-printer",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Use Nyx devices Printer such as NB55,T2PRO in React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -163,21 +163,21 @@
     "useTabs": false
   },
   "react-native-builder-bob": {
-  "source": "src",
-  "output": "lib",
-  "targets": [
-    [
-      "commonjs",
-      {
-        "esm": true
-      }
-    ],
-    [
-      "module",
-      {
-        "esm": true
-      }
-    ],
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
       [
         "typescript",
         {
@@ -186,7 +186,7 @@
           "tsc": "./node_modules/.bin/tsc"
         }
       ]
-  ]
+    ]
   },
   "codegenConfig": {
     "name": "RNNyxPrinterSpec",
