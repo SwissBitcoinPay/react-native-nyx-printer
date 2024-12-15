@@ -46,14 +46,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shamseer1997/react-native-nyx-printer.git"
+    "url": "git+https://github.com/SwissBitcoinPay/react-native-nyx-printer.git"
   },
-  "author": "shamseer <shamseerk1997@gmail.com> (https://github.com/shamseer1997)",
+  "author": "Swiss Bitcoin Pay <hello@swiss-bitcoin-pay.ch> (https://github.com/SwissBitcoinPay)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shamseer1997/react-native-nyx-printer/issues"
+    "url": "https://github.com/SwissBitcoinPay/react-native-nyx-printer/issues"
   },
-  "homepage": "https://github.com/shamseer1997/react-native-nyx-printer#readme",
+  "homepage": "https://github.com/SwissBitcoinPay/react-native-nyx-printer#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
