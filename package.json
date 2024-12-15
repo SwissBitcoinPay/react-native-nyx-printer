@@ -44,10 +44,7 @@
     "ios",
     "android"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SwissBitcoinPay/react-native-nyx-printer.git"
-  },
+  "repository": "https://github.com/SwissBitcoinPay/react-native-nyx-printer",
   "author": "Swiss Bitcoin Pay <hello@swiss-bitcoin-pay.ch> (https://github.com/SwissBitcoinPay)",
   "license": "MIT",
   "bugs": {
@@ -81,9 +78,6 @@
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"
   },
-  "resolutions": {
-    "@types/react": "17.0.21"
-  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
@@ -91,7 +85,7 @@
   "engines": {
     "node": ">= 16.0.0"
   },
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "yarn@3.6.1",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
@@ -124,7 +118,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@react-native-community",
+      "@react-native",
       "prettier"
     ],
     "rules": {
@@ -170,10 +164,6 @@
     "name": "RNNyxPrinterSpec",
     "type": "modules",
     "jsSrcsDir": "src"
-  },
-  "directories": {
-    "example": "example",
-    "lib": "lib"
   },
   "dependencies": {
     "abort-controller": "^3.0.0",
