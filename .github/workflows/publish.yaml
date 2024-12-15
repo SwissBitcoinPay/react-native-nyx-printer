@@ -10,7 +10,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v2
     - name: Install the dependancies
-      run: npm ci
+      run: npm ci --force
     - name: Initialise the NPM config
       run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
       env:
