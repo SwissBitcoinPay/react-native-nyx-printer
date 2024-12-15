@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "declaration": true,
     "paths": {
-      "react-native-nyx-printer": ["./src/index"]
+      "react-native-nyx-printer": [
+        "./src/index"
+      ]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -10,8 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": [
-      "es2022",
-      "dom"
+      "esnext"
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -25,7 +27,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022",
-    "verbatimModuleSyntax": true
-  }
+    "target": "esnext",
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+  },
+  "include": [
+    "src"
+  ]
 }
