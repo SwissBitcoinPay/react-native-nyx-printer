@@ -245,7 +245,11 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
               printTextFormat.setFont(textFormat.getInt("font"));
           }
 
+          showLog("step 6");
+
           int ret = printerService.printText(content, printTextFormat);
+          showLog("step 7");
+
           showLog("Print text: " + msg(ret));
           promise.resolve(ret);
         } catch (RemoteException e) {
