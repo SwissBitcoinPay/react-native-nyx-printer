@@ -222,17 +222,25 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       @Override
       public void run() {
         try {
+          showLog("step 1");
           PrintTextFormat printTextFormat = new PrintTextFormat();
+          showLog("step 2");
 
           if (textFormat.hasKey("align") && !textFormat.isNull("align")) {
               printTextFormat.setAli(textFormat.getInt("align"));
           }
+          showLog("step 3");
+
           if (textFormat.hasKey("textSize") && !textFormat.isNull("textSize")) {
               printTextFormat.setTextSize(textFormat.getInt("textSize"));
           }
+          showLog("step 4");
+
           if (textFormat.hasKey("style") && !textFormat.isNull("style")) {
               printTextFormat.setStyle(textFormat.getInt("style"));
           }
+          showLog("step 5");
+
           if (textFormat.hasKey("font") && !textFormat.isNull("font")) {
               printTextFormat.setFont(textFormat.getInt("font"));
           }
