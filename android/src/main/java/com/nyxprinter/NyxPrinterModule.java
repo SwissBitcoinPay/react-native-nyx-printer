@@ -241,11 +241,14 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
           }
           showLog("step 5");
 
-          if (textFormat.hasKey("font") && !textFormat.isNull("font")) {
-              showLog("step 5.5");
-              int font = textFormat.getInt("font");
-              showLog("step 5.7");
-              printTextFormat.setFont(font);
+          if (textFormat.hasKey("font")) {
+              showLog("step 5.1");
+              if (!textFormat.isNull("font")) {
+                showLog("step 5.5");
+                int font = textFormat.getInt("font");
+                showLog("step 5.7");
+                printTextFormat.setFont(font);
+            }
           }
 
           showLog("step 6");
