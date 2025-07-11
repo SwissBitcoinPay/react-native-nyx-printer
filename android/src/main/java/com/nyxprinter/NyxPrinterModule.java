@@ -223,17 +223,20 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       public void run() {
         try {
           PrintTextFormat printTextFormat = new PrintTextFormat();
-          printTextFormat.setAli(textFormat.getInt("align"));
-          printTextFormat.setTextSize(textFormat.getInt("textSize"));
-          printTextFormat.setUnderline(textFormat.getBoolean("underline"));
-          printTextFormat.setTextScaleX((float)textFormat.getDouble("textScaleX"));
-          printTextFormat.setTextScaleY((float)textFormat.getDouble("textScaleY"));
-          printTextFormat.setLetterSpacing((float)textFormat.getDouble("letterSpacing"));
-          printTextFormat.setLineSpacing((float)textFormat.getDouble("lineSpacing"));
-          printTextFormat.setTopPadding(textFormat.getInt("topPadding"));
-          printTextFormat.setLeftPadding(textFormat.getInt("leftPadding"));
-          printTextFormat.setStyle(textFormat.getInt("style"));
-          printTextFormat.setFont(textFormat.getInt("font"));
+
+          if (textFormat.hasKey("align") && !textFormat.isNull("align")) {
+              printTextFormat.setAli(textFormat.getInt("align"));
+          }
+          if (textFormat.hasKey("textSize") && !textFormat.isNull("textSize")) {
+              printTextFormat.setTextSize(textFormat.getInt("textSize"));
+          }
+          if (textFormat.hasKey("style") && !textFormat.isNull("style")) {
+              printTextFormat.setStyle(textFormat.getInt("style"));
+          }
+          if (textFormat.hasKey("font") && !textFormat.isNull("font")) {
+              printTextFormat.setFont(textFormat.getInt("font"));
+          }
+
           int ret = printerService.printText(content, printTextFormat);
           showLog("Print text: " + msg(ret));
           promise.resolve(ret);
