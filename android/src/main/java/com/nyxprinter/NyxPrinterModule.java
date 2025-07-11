@@ -38,7 +38,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import android.widget.Toast;
-import android.os.Build;
 
 public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
   public static final String NAME = "NyxPrinter";
@@ -85,13 +84,8 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
   private void startService() {
     Intent intent = new Intent();
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13 and above
-      intent.setPackage("com.incar.printerservice");
-      intent.setAction("com.incar.printerservice.IPrinterService");
-    } else {  // For Android versions below 13
-        intent.setPackage("net.nyx.printerservice");
-        intent.setAction("net.nyx.printerservice.IPrinterService");
-    }
+    intent.setPackage("net.nyx.printerservice");
+    intent.setAction("net.nyx.printerservice.IPrinterService");
     mContext.bindService(intent, connService, Context.BIND_AUTO_CREATE);
     showLog("startService");
   }
@@ -222,43 +216,22 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       @Override
       public void run() {
         try {
-          Log.d("NyxPrinterModule", "textFormat: " + textFormat.toString());
-          showLog("step 1");
           PrintTextFormat printTextFormat = new PrintTextFormat();
-          showLog("step 2");
 
           if (textFormat.hasKey("align") && !textFormat.isNull("align")) {
               printTextFormat.setAli(textFormat.getInt("align"));
           }
-          showLog("step 3");
-
           if (textFormat.hasKey("textSize") && !textFormat.isNull("textSize")) {
               printTextFormat.setTextSize(textFormat.getInt("textSize"));
           }
-          showLog("step 4");
-
           if (textFormat.hasKey("style") && !textFormat.isNull("style")) {
               printTextFormat.setStyle(textFormat.getInt("style"));
           }
-          showLog("step 4.5");
-          showLog("step 5.01");
-
-
-          if (textFormat.hasKey("font")) {
-              showLog("step 5.1");
-              if (!textFormat.isNull("font")) {
-                showLog("step 5.5");
-                int font = textFormat.getInt("font");
-                showLog("step 5.7");
-                printTextFormat.setFont(font);
-            }
+          if (textFormat.hasKey("font") && !textFormat.isNull("font")) {
+              printTextFormat.setFont(textFormat.getInt("font"));
           }
 
-          showLog("step 6");
-
           int ret = printerService.printText(content, printTextFormat);
-          showLog("step 7");
-
           showLog("Print text: " + msg(ret));
           promise.resolve(ret);
         } catch (RemoteException e) {
