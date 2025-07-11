@@ -240,6 +240,7 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
               printTextFormat.setStyle(textFormat.getInt("style"));
           }
           showLog("step 5");
+          showLog("step 5.01");
 
           if (textFormat.hasKey("font")) {
               showLog("step 5.1");
