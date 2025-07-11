@@ -222,6 +222,7 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
       @Override
       public void run() {
         try {
+          Log.d("NyxPrinterModule", "textFormat: " + textFormat.toString());
           showLog("step 1");
           PrintTextFormat printTextFormat = new PrintTextFormat();
           showLog("step 2");
@@ -241,6 +242,7 @@ public class NyxPrinterModule extends com.nyxprinter.NyxPrinterSpec {
           }
           showLog("step 5");
           showLog("step 5.01");
+
 
           if (textFormat.hasKey("font")) {
               showLog("step 5.1");
